@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>音乐</title>
+    <style type="text/css">
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        ul,li{
+            list-style: none;
+        }
+        #nav{
+            width: 100%;
+            height: 56px;
+            background: #1f0a31 url("images/topbg1.jpg") no-repeat top center ;
+            margin-top: 100px;
+        }
+        #nav ul{
+            width: 750px;
+            height: 56px;
+            margin: 0 auto;
+            padding-left: 100px;
+        }
+        #nav ul li{
+            width: 100px;
+            height: 56px;
+            float: left;
+            font-size: 16px;
+            font-family: "微软雅黑";
+            text-align: center;
+            line-height: 56px;
+            position: relative;
+        }
+        #nav ul li a{
+            color: #fff;
+            text-decoration: none;
+            width: 100%;
+            height: 56px;
+            display: block;
+            position: absolute;
+            z-index: 4;
+        }
+        #nav ul li span{
+            background: rgba(0,0,0,0.4);
+            width: 100%;
+            height: 0;
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: 3;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="nav">
+        <ul>
+            <li dataSrc="S.H.E - 天使在唱歌 - 铃声版2"><a href="">天使在唱歌</a><span></span></li>
+            <li dataSrc="Boy'z - 死性不改"><a href="">死性不改</a><span></span></li>
+            <li dataSrc="张敬轩 - 至少还有你"><a href="">至少还有你</a><span></span></li>
+            <li dataSrc="薛之谦 - 绅士"><a href="">绅士</a><span></span></li>
+            <li dataSrc="周二珂 - 走在冷风中"><a href="">走在冷风中</a><span></span></li>
+            <li dataSrc="胡杏儿,黄宗泽 - 感激遇到你"><a href="">感激遇到你</a><span></span></li>
+            <li dataSrc="杨千嬅 - 处处吻"><a href="">处处吻</a><span></span></li>
+        </ul>
+    </div>
+    <div style="display: none"><video src="mp3/do.mp3" id="music"></video></div>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript">
+        $("#nav ul li").hover(function(){
+            $(this).find("span").animate({height:"56px"},200)
+            var _src=$(this).attr("dataSrc");
+            console.log(_src);
+            $("#music").get(0).src="mp3/"+_src+".mp3";
+            $("#music").get(0).play();
+        },function(){
+            $(this).find("span").animate({height:"0"},200)
+        });
+    </script>
+</body>
+</html>
